@@ -16,3 +16,4 @@ This tool needs 3 inputs.
 I wrote this code to find out forgotten passwords for some very old archived files I had on my home Server.
 
 You must try to break down the password patterns with good guesses. Attempting to brute force will take lot of time as this till simply tries of all permutations. Try to break down the input patterns to smaller chunks so that this tool can finish off in a few hours or days. If you feel the tools will take weeks, then your inputs are basically bad as it tends towards brute force. Usually its not worth trying if you think the best patterns you can provide is taking months to solve.
+Please use mainline branch
