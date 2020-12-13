@@ -7,11 +7,11 @@ This tool uses http://www.github.com/nccgroup/untrue & https://github.com/adocon
 
 This tool needs 3 inputs.
 
-A folder containing all the hints partitioned into files, with each line carrying a portion of the password as hint. Ex. animals.txt, numbers.txt etc
+(1) A folder containing all the hints partitioned into files, with each line carrying a portion of the password as hint. Ex. animals.txt, numbers.txt etc
 
-A codemap file that uses a code for each file. Ex. {ANIMAL} -> animals.txt, {NUM}->numbers.txt
+(2) A codemap file that uses a code for each file. Ex. {ANIMAL} -> animals.txt, {NUM}->numbers.txt
 
-A pattern file that containts patterns to check. Each pattern must appear in a new line. Ex. {ANIMAL}#{NUM}, or {ANIMAL}{NUM}{NUM}{NUM} etc
+(3) A pattern file that containts patterns to check. Each pattern must appear in a new line. Ex. {ANIMAL}#{NUM}, or {ANIMAL}{NUM}{NUM}{NUM} etc
 
 I wrote this code to find out forgotten passwords for some very old archived files I had on my home Server.
 
