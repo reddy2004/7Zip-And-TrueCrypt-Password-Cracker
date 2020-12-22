@@ -1,3 +1,0 @@
-1,A,red
-2,A,blue
-3,A,green
