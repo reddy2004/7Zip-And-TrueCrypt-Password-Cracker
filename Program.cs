@@ -24,6 +24,7 @@ namespace _7Zip_And_TrueCrypt_Password_Cracker
             String archiveFileType = "<empty>";
             String fileToProcess = "";
             /*
+             * Example To check a single password
             ZipFilePasswordChecker zfpc = new ZipFilePasswordChecker(null);
             zfpc.PreprocessFile(@"C:\Users\91998\Desktop\passwordChecker\7zipArchive.7z");
             zfpc.CheckPassword(@"C:\Users\91998\Desktop\passwordChecker\7zipArchive.7z", "coronavirus");
