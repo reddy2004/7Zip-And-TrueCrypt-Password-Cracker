@@ -1,0 +1,6 @@
+ITEM,item.txt
+COLOR,color.txt
+ANIMAL,animal.txt
+COUNT,count.txt
+PREFIX,diseaseprefix.txt
+PATHOGEN,pathogen.txt

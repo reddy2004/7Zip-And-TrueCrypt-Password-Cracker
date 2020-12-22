@@ -1,0 +1,1 @@
+The file 7zipArchive present in this directory is a password protected zip file. The password is 'coronavirus'

@@ -1,0 +1,1 @@
+The file truecryptVol.dat present in this directory is a 64MB fat formated truecrypt volume. The password is 'coronavirus'

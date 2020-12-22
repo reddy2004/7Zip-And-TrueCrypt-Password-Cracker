@@ -1,0 +1,2 @@
+1,A,bacteria
+2,A,virus

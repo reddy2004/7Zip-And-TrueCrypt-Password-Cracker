@@ -28,5 +28,6 @@ https://www.nuget.org/packages/Microsoft.NETCore.App/2.1.0?_src=template
 
 https://www.nuget.org/packages/System.Configuration.ConfigurationManager/5.0.0?_src=template
 
-You must also add BouncyCastle.CryptoExt and NDesk.Options to your project, these are located in the lib/ folder
+You must also add BouncyCastle.CryptoExt and NDesk.Options to your project, these are located in the lib/ folder.
+7Zip must be install and the file: C:\Program Files\7-Zip\7z.dll should be accessible.
 

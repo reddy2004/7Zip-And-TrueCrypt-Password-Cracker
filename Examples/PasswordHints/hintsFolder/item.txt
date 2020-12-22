@@ -1,0 +1,4 @@
+1,A,table
+2,A,chair
+3,A,apple
+4,A,mango
