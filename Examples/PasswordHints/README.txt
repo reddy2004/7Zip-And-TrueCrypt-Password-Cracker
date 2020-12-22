@@ -49,3 +49,49 @@ You can obserse that {TXT1} is replace with codes in TXT1,textSeg.txt, and {TXT2
 All possible combinations of {TXT1}@{TXT2} are tried.
 
 You can also refer to another example provided in the PasswordHints/ folder.
+
+
+---------------- Adding exclusions -------------
+Generally your passwords will follow a certain pattern. for ex. My password might contain "redhat" or "REDHat" or RedHat". You might want to check both upper and lower case characters, which is fine, but dont want to check them together.
+i.e You want both 'Red' and 'red' to be checked but not 'Redred' or 'redRed' together as you already know they will never appear to gether in your password.
+
+This is where exclusions come in. So how do you mark exclusions in the files in hintsFolder/ folder??
+Think of it this way. For each file, construct a matrix of rows and columns with each password. In the matrix[i][j] assign an unique number. Then take all the numbers for password at i'th location and put it as comma seperated values in the hintsFolder/ *.txt files
+
+        /*
+         * We have two groups of words, we dont want them to be checked together since we know its part of password, but
+         * not sure if its upper case or lower case. "1" and "2" are exclusion groups. Only one of the variant can be part
+         * of the password, never two or more segments of the same group
+         * 1,F,sheep,1
+         * 2,F,Sheep,1
+         * 3,F,Goat,2
+         * 4,F,goat,2
+         * A simple conflict example, when we add "black" and we dont want black to be a part of sheep or goat (incorrect grouping example)
+         * 1,F,sheep,1,3
+         * 2,F,Sheep,1,3   << bad, since now because all words are in exclusion group '3', goat and sheep will never
+         * 3,F,Goat,2,3    <<  come together. We want goat &sheep to be evaluated in the same password.
+         * 4,F,goat,2,3
+         * 5,F,Black,3
+         * 6,F,black,3
+         * We dont want "sheep" and "Sheep" together in a password, and also "goat" and "Goat. But we are okay to have
+         * goat & sheep in the password. If we add "black" and we dont want black to be included, the above consistency
+         * check fails because now "sheep" and "goat" will be excluded because of group "3". Correct version should look something like below
+         * 1,F,sheep,1,4       <<sheep cannot appear with Sheep & Black/black
+         * 2,F,Sheep,1,4       <<Sheep cannot appear with sheep & Black/black
+         * 3,F,Goat,2,3        <<same as above
+         * 4,F,goat,2,3
+         * 5,F,Black,3,4
+         * 6,F,black,3,4
+         * The above "3" and "4" groups will exclude black coming together with either sheep/goat, but wont prevent
+         * sheep & goat coming in the same password.
+         */
+
+ MATRIX                sheep	Sheep	goat Goat	black Black
+sheep			-	1	-	-	4	4
+Sheep			1	-	-	-	4	4
+goat			-	-	-	2	3	3
+Goat			-	-	2	-	3	3
+black			4	4	3	3	-	-
+Black			4	4	3	3	-	-
+
+Note that the matrix is symmetric across the diagnol. Also since black & Black are in together in exclusion groups 3 & 4, they wont appear together as well. You could add black & Black to a new exclusion group, say 5, but that is not required due to 3 & 4 already being assinged to black & Black.
